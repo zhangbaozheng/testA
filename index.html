@@ -5,8 +5,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #show {
+      display: none;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
-  于佳你在干什么
+  <button id="look">点击看猛男</button>
+
+  <div id='showtime'>倒计时 <span id="time"></span> 就可以猛男</div>
+
+  <div id="show">
+    <h2>还想看猛男！，我看你是想死</h2>
+    <img src="./src/微信图片_20220728223503.jpg" alt="">
+    <img src="./src/微信图片_20220728223511.jpg" alt="">
+  </div>
+  <script>
+    let look = document.querySelector('#look')
+    let showTime = document.querySelector('#showtime')
+    let show = document.querySelector('#show')
+    look.addEventListener('click', () => {
+      let i = 3
+      let clear = setInterval(() => {
+        i--
+        showTime.innerText = i
+        if(i === 0) {
+          clearInterval(clear)
+          show.style = 'display: block'
+        }
+      }, 1000)
+    })
+  </script>
 </body>
 </html>
